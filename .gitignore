@@ -1,0 +1,209 @@
+# Created for Spring Boot + Vue 3 Monorepo Project
+# General
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+*.code-workspace
+.project
+.classpath
+.settings/
+*.launch
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# Build outputs
+target/
+build/
+out/
+bin/
+dist/
+release/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+.webpack/
+.yarn/
+.pnp/
+
+# Logs
+*.log
+logs/
+log/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output
+
+# Dependency tree
+dependency-reduced-pom.xml
+buildInfo.properties
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Vue/NPM/Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+.pnpm-debug.log*
+
+# Vue build outputs
+dist/
+dist-ssr/
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Local history for Visual Studio Code
+.history/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# System files
+*.dll
+*.so
+*.dylib
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Application specific
+*.keystore
+*.jks
+*.p12
+*.cer
+
+# Spring Boot
+!src/main/resources/application*.properties
+!src/main/resources/application*.yml
+!src/main/resources/application*.yaml
+
+# Vue CLI
+*.log
+.cache/
+.vuepress/dist
+.prettierrc
+.eslintcache
+.stylelintcache
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/fixtures/example.json
+
+# Jest
+jest-cache/
+jest-coverage/
+
+# Playwright
+test-results/
+playwright-report/
+
+# Selenium
+*.ser
+
+# Misc
+/.attach_pid*
+/.node_repl_history
+/.yarn/
+/.pnp.*
+/.yarn-integrity
+/.yarnrc.yml
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.cjs
+.pnp.loader.mjs
+
+# Monorepo specific
+**/node_modules/
+**/dist/
+**/build/
+**/target/
+**/out/
+**/.gradle/
+**/.idea/
+**/.vscode/
+
+# Custom directories (adjust as needed)
+frontend/node_modules/
+frontend/dist/
+backend/target/
+backend/build/
