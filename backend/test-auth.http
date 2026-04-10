@@ -16,3 +16,17 @@ Content-Type: application/json
   "username": "testuser",
   "password": "123456"
 }
+### 3.商品测试接口
+### ==================== 商品模块测试 ====================
+
+### 1. 获取所有商品列表（GET）
+GET http://localhost:8080/api/products
+Accept: application/json
+
+### 2. 获取单个商品详情（把 1 换成你数据库里真实存在的 id，比如 1、2、3、4）
+GET http://localhost:8080/api/products/1
+Accept: application/json
+
+### 3. 测试不存在的商品（应该返回错误提示）
+GET http://localhost:8080/api/products/999
+Accept: application/json
