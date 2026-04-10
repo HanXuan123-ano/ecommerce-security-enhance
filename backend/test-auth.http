@@ -30,3 +30,25 @@ Accept: application/json
 ### 3. 测试不存在的商品（应该返回错误提示）
 GET http://localhost:8080/api/products/999
 Accept: application/json
+
+### ==================== 购物车模块测试 ====================
+
+### 1. 查看购物车（先用一个已存在的用户名，比如你之前注册的 testuser）
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### 2. 把商品加入购物车（productId=1 是 iPhone 16 Pro，数量=2）
+POST http://localhost:8080/api/cart/add?username=testuser&productId=1&quantity=2
+Accept: application/json
+
+### 3. 再次查看购物车（应该看到刚才加入的商品）
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### 4. 再加一次相同商品（测试数量累加功能）
+POST http://localhost:8080/api/cart/add?username=testuser&productId=1&quantity=1
+Accept: application/json
+
+### 5. 最后再查看一次购物车
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json

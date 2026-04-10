@@ -20,9 +20,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // 允许所有认证相关的接口（登录、注册、验证码）
                         .requestMatchers("/api/auth/**").permitAll()
-                        // 新增：允许任何人查看商品（商品列表和详情公开）
+                        // 允许任何人查看商品（商品列表和详情公开）
                         .requestMatchers("/api/products/**").permitAll()
-                        // 其他所有接口暂时需要登录（后面我们会逐步加上购物车、订单等）
+                        // 新增：允许购物车接口（开发阶段公开，后面可改成登录后才能操作）
+                        .requestMatchers("/api/cart/**").permitAll()
+                        // 其他所有接口暂时需要登录（后面我们会逐步加上订单等）
                         .anyRequest().authenticated()
                 );
 
