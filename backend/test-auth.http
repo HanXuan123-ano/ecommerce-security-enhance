@@ -90,3 +90,29 @@ Accept: application/json
 ### ==================== 测试订单状态是否更新====================
 GET http://localhost:8080/api/orders?username=testuser
 Accept: application/json
+
+### ==================== 【验证】后端购物车接口 ====================
+
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### ==================== 添加商品到购物车（测试用） ====================
+
+# 添加 2 个 iPhone 16 Pro（productId=1）
+POST http://localhost:8080/api/cart/add?username=testuser&productId=1&quantity=2
+Accept: application/json
+
+### ==================== 再次查看购物车（验证） ====================
+
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### ==================== 【重新添加商品】 ====================
+
+POST http://localhost:8080/api/cart/add?username=testuser&productId=1&quantity=2
+Accept: application/json
+
+### ==================== 【查看购物车确认】 ====================
+
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
