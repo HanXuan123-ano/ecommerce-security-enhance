@@ -10,21 +10,21 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "cart_items")
+@Table(name = "order_items")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartItem {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    @JsonIgnore                    // ←←← 关键修复：防止无限循环
-    private Cart cart;
+    @JoinColumn(name = "order_id", nullable = false)
+    @JsonIgnore                    // ←←← 关键修复：防止 Order 和 OrderItem 无限循环
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)

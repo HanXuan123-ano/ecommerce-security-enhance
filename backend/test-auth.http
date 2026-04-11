@@ -52,3 +52,41 @@ Accept: application/json
 ### 5. 最后再查看一次购物车
 GET http://localhost:8080/api/cart?username=testuser
 Accept: application/json
+
+### ==================== 订单模块完整测试 ====================
+
+### 1. 【准备】查看当前用户购物车（确认有商品）
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### 2. 【核心】从购物车创建订单（下单）
+POST http://localhost:8080/api/orders/create?username=testuser
+Accept: application/json
+
+### 3. 【核心】查看我的订单列表（会返回刚才创建的订单）
+GET http://localhost:8080/api/orders?username=testuser
+Accept: application/json
+
+### 4. 【核心】模拟支付（把上面的 orderId 替换成真实返回的 id）
+POST http://localhost:8080/api/orders/pay?orderId=这里替换成实际的orderId
+Accept: application/json
+
+### 5. 【验证】再次查看订单列表（状态应该变为 PAID）
+GET http://localhost:8080/api/orders?username=testuser
+Accept: application/json
+
+### ==================== 【准备】添加商品到购物车 ====================
+
+POST http://localhost:8080/api/cart/add?username=testuser&productId=1&quantity=2
+Accept: application/json
+### ==================== 测试用户购物车是否正常 ====================
+GET http://localhost:8080/api/cart?username=testuser
+Accept: application/json
+
+### ==================== 模拟支付 ====================
+
+POST http://localhost:8080/api/orders/pay?orderId=1
+Accept: application/json
+### ==================== 测试订单状态是否更新====================
+GET http://localhost:8080/api/orders?username=testuser
+Accept: application/json

@@ -16,15 +16,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)   // 前后端分离项目必须禁用 CSRF
                 .authorizeHttpRequests(auth -> auth
-                        // 允许所有认证相关的接口（登录、注册、验证码）
-                        .requestMatchers("/api/auth/**").permitAll()
-                        // 允许任何人查看商品（商品列表和详情公开）
-                        .requestMatchers("/api/products/**").permitAll()
-                        // 新增：允许购物车接口（开发阶段公开，后面可改成登录后才能操作）
-                        .requestMatchers("/api/cart/**").permitAll()
-                        // 其他所有接口暂时需要登录（后面我们会逐步加上订单等）
+                        // ==================== 公开允许的接口 ====================
+                        .requestMatchers("/api/auth/**").permitAll()      // 登录、注册、验证码
+                        .requestMatchers("/api/products/**").permitAll()  // 商品浏览（公开）
+                        .requestMatchers("/api/cart/**").permitAll()      // 购物车操作
+                        .requestMatchers("/api/orders/**").permitAll()    // 订单下单、支付、查询（本次新增）
+
+                        // 其他所有接口暂时需要登录（后面可以逐步加上权限控制）
                         .anyRequest().authenticated()
                 );
 
@@ -33,6 +33,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();   // 使用 BCrypt 加密密码
     }
 }
